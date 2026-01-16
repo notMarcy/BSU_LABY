@@ -7,9 +7,9 @@ Student::Student(const char* n, int c, int g, int rb):id(idCounter++), recordBoo
     name = new char[strlen(n) + 1];
     strcpy(name, n);
 }
-Student::Student(const Student& other) : id(idCounter++), recordBook(other.recordBook), course(other.course), group(other.group){
-    name = new char[strlen(other.name) + 1];
-    strcpy(name, other.name);
+Student::Student(const Student& st) : id(idCounter++), recordBook(st.recordBook), course(st.course), group(st.group){
+    name = new char[strlen(st.name) + 1];
+    strcpy(name, st.name);
 }
 
 Student::~Student(){
@@ -34,10 +34,10 @@ void Student::setGroup(int g){
 
 void Student::print(std::ostream& os) const{
     os<< "ID: "<< id<< std::endl;
-    os<<"Имя: " << name<< std::endl;
-    os<< "Курс: " << course<< std::endl;
-    os<< "Группа: " << group<< std::endl;
-    os << "Зачетка: " << recordBook<< std::endl;
+    os<<"пїЅпїЅпїЅ: " << name<< std::endl;
+    os<< "пїЅпїЅпїЅпїЅ: " << course<< std::endl;
+    os<< "пїЅпїЅпїЅпїЅпїЅпїЅ: " << group<< std::endl;
+    os << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: " << recordBook<< std::endl;
 }
 
 Session1::Session1(const char* n, int c, int g, int rb, const int m1[4]):Student(n, c, g, rb){
@@ -67,11 +67,11 @@ double Session1::getAverage() const{
 
 void Session1::print(std::ostream& os) const{
     Student::print(os);
-    os << " Оценки 1 сессия: ";
+    os << " пїЅпїЅпїЅпїЅпїЅпїЅ 1 пїЅпїЅпїЅпїЅпїЅпїЅ: ";
     for(int m : marks1)
         os << m << " ";
     os<<std::endl;
-    os<<"Ср. балл: " << getAverage();
+    os<<"пїЅпїЅ. пїЅпїЅпїЅпїЅ: " << getAverage();
 }
 
 Session2::Session2(const char* n, int c, int g, int rb, const int m1[4], const int m2[5]):Session1(n, c, g, rb, m1){
@@ -104,9 +104,9 @@ double Session2::getAverage() const{
 
 void Session2::print(std::ostream& os) const{
     Session1::print(os);
-    os << " Оценки 2 сессия: ";
+    os << " пїЅпїЅпїЅпїЅпїЅпїЅ 2 пїЅпїЅпїЅпїЅпїЅпїЅ: ";
     for(int m : marks2)
         os << m << " ";
     os<<std::endl;
-    os<<"Ср. за год: " << getAverage();
+    os<<"пїЅпїЅ. пїЅпїЅ пїЅпїЅпїЅ: " << getAverage();
 }
